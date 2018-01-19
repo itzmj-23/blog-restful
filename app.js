@@ -16,8 +16,8 @@ app.use(methodOverride("_method"));
 // MONGOOSE/MODEL CONFIG
 var dburl = process.env.DATABASEURL || "mongodb://localhost/restful_blog_app"
 console.log(dburl);
-// mongoose.connect("mongodb://localhost/restful_blog_app");
-// mongodb://test:test@ds145385.mlab.com:45385/blog
+mongoose.connect(dburl);
+// mongoose.connect("mongodb://test:test@ds145385.mlab.com:45385/blog");
 
 
 var blogSchema = new mongoose.Schema({
@@ -123,5 +123,5 @@ app.delete("/blogs/:id", function(req, res){
 }) 
 
 app.listen(process.env.PORT || 3000, function(){
-   console.log("Server is running...");
-})
+   console.log("Server is running..");
+});
