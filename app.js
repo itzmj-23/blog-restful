@@ -14,7 +14,11 @@ app.use(methodOverride("_method"));
 
 
 // MONGOOSE/MODEL CONFIG
-mongoose.connect("mongodb://localhost/restful_blog_app");
+var dburl = process.env.DATABASEURL || "mongodb://localhost/restful_blog_app"
+console.log(dburl);
+// mongoose.connect("mongodb://localhost/restful_blog_app");
+// mongodb://<dbuser>:<dbpassword>@ds145385.mlab.com:45385/blog
+
 
 var blogSchema = new mongoose.Schema({
    title: String,
